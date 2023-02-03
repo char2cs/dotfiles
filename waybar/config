@@ -1,0 +1,110 @@
+{
+    "layer": "top",
+    "position": "top",
+	"output": "DP-1",
+    "height": 40,
+    "spacing": 10,
+
+    "modules-left": [
+		"custom/logo",
+		"hyprland/window"
+    ],
+
+	"modules-center": [
+		"custom/spotify",
+		"image/album-art"
+	],
+
+    "modules-right": [
+		"tray",
+		"pulseaudio",
+		"battery",
+		"network",
+		"custom/search",
+		"clock"
+    ],
+
+	"custom/logo": {
+		"format": "",
+		"tooltip": "We're allone in the universe",
+		"on-click": "wlogout"
+	},
+
+	"custom/search": {
+		"format": "<span font='Font Awesome 6 Free 11'></span>",
+		"tooltip": "",
+		"on-click": "rofi -show drun"
+	},
+
+	"hyprland/window": {
+		"format": "{}",
+		"separate-outputs": false
+	},
+
+	"battery": {
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "gnome-power-statistics"
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 25
+    },
+
+	"pulseaudio": {
+        "format": "<span font='Font Awesome 6 Free 11'>{icon:2}</span>",
+        "format-bluetooth": "<span font='Font Awesome 6 Free 11'> {icon:2}</span> {volume:4}% - {desc}",
+        "format-alt": "<span font='Font Awesome 6 Free 11'>{icon:2}</span> {volume:4}%",
+        "format-alt-click": "click-right",
+        "format-muted": "<span font='Font Awesome 6 Free 11'></span>",
+        "format-icons": {
+            "headphone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+        },
+        "scroll-step": 2,
+        "on-click": "gnome-control-center sound",
+        "tooltip": false
+    },
+
+	"network": {
+        "format": "{icon}",
+        "format-alt": "{ipaddr}/{cidr} {icon}",
+        "format-alt-click": "click-right",
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "<span font='Font Awesome 5 Free 10'></span>",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "gnome-control-center wifi",
+        "tooltip": false
+    },
+	
+	"image/album-art": {
+		"exec-if": "pgrep spotify",
+		"path": "/tmp/cover.jpeg",
+		"size": 30,
+		"interval": 5,
+		"on-click": "spotify"
+   	},
+
+	"custom/spotify": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "/etc/xdg/waybar/modules/spotify.sh",
+        "exec-if": "pgrep spotify",
+        "escape": true
+    },
+
+	"clock": {
+        "format": "{:%a, %d %b  %H:%M}",
+        "tooltip": false
+    }
+}

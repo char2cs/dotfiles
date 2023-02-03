@@ -1,0 +1,7 @@
+shell:
+ program: /bin/zsh
+ args:
+ - --login
+
+window:
+ opacity: .50

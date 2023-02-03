@@ -1,0 +1,8 @@
+//@theme "appmnu"
+//@theme "/usr/share/rofi/themes/gruvbox-light-hard.rasi"
+//@theme "/usr/share/rofi/themes/gruvbox-light-soft.rasi"
+//@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+//@theme "/home/char2cs/.local/share/rofi/themes/spotlight.rasi"
+//@theme "/home/char2cs/.local/share/rofi/themes/windows11-list-light.rasi"
+//@theme "/home/char2cs/.local/share/rofi/themes/windows11-list-dark.rasi"
+@theme "/home/char2cs/.local/share/rofi/themes/windows11-list-light.rasi"
