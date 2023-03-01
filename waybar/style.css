@@ -27,6 +27,8 @@ window#waybar.hidden {
 	font-size: 16px;
 }
 
+#backlight,
+#battery,
 #custom-search,
 #custom-spotify,
 #tray,
@@ -84,14 +86,8 @@ window#waybar.hidden {
     border-radius: 10px;
 }
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
-}
-
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: #26A65B;
 }
 
 @keyframes blink {
@@ -116,9 +112,7 @@ label:focus {
 }
 
 #backlight {
-    background-color: #FA8BFF;
-    background-image: linear-gradient(45deg, #2BD2FF 0%, #2BD2FF 52%, #2BD2FF 90%);
-    border-radius: 10px;
+	padding-left: 200px;
 }
 
 #custom-media {

@@ -1,7 +1,6 @@
 {
     "layer": "top",
     "position": "top",
-	"output": "DP-1",
     "height": 40,
     "spacing": 10,
 
@@ -17,6 +16,7 @@
 
     "modules-right": [
 		"tray",
+		"backlight",
 		"pulseaudio",
 		"battery",
 		"network",
@@ -41,12 +41,20 @@
 		"separate-outputs": false
 	},
 
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{percent}% <span font='Font Awesome 6 Free 11'></span>",
+		"interval" : 0.2,
+		"on-scroll-down": "~/.config/waybar/modules/brightness.sh /sys/class/backlight/intel_backlight/brightness down 50",
+		"on-scroll-up": "~/.config/waybar/modules/brightness.sh /sys/class/backlight/intel_backlight/brightness up 50"
+	},
+
 	"battery": {
-        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format": "<span font='Font Awesome 6 Free 11'>{icon}</span>  {capacity}%",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
-        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
-        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "format-charging": "<span font='Font Awesome 6 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 6 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
         "interval": 30,
         "states": {
             "warning": 25,
@@ -80,7 +88,7 @@
         "format": "{icon}",
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
-        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-wifi": "    {essid} ({signalStrength}%)",
         "format-ethernet": "<span font='Font Awesome 5 Free 10'></span>",
         "format-disconnected": "⚠ Disconnected",
         "on-click": "gnome-control-center wifi",
@@ -98,7 +106,7 @@
 	"custom/spotify": {
         "interval": 1,
         "return-type": "json",
-        "exec": "/etc/xdg/waybar/modules/spotify.sh",
+        "exec": "~/.config/waybar/modules/spotify.sh",
         "exec-if": "pgrep spotify",
         "escape": true
     },
