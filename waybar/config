@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 40,
+    "height": 25,
     "spacing": 10,
 
     "modules-left": [
@@ -20,6 +20,7 @@
 		"pulseaudio",
 		"battery",
 		"network",
+		"custom/weather",
 		"custom/search",
 		"clock"
     ],
@@ -28,6 +29,13 @@
 		"format": "",
 		"tooltip": "We're allone in the universe",
 		"on-click": "wlogout"
+	},
+
+	"custom/weather": {
+		"exec": "python ~/.config/waybar/modules/weather.py",
+		"restart-interval": 300,
+		"return-type": "json",
+		"on-click": "xdg-open https://weather.com/en-IN/weather/today/l/$(location_id)"
 	},
 
 	"custom/search": {
@@ -43,7 +51,7 @@
 
 	"backlight": {
 		"device": "intel_backlight",
-		"format": "{percent}% <span font='Font Awesome 6 Free 11'></span>",
+		"format": "<span font='Font Awesome 6 Free 11'></span>  {percent}%",
 		"interval" : 0.2,
 		"on-scroll-down": "~/.config/waybar/modules/brightness.sh /sys/class/backlight/intel_backlight/brightness down 50",
 		"on-scroll-up": "~/.config/waybar/modules/brightness.sh /sys/class/backlight/intel_backlight/brightness up 50"
@@ -70,8 +78,8 @@
     },
 
 	"pulseaudio": {
-        "format": "<span font='Font Awesome 6 Free 11'>{icon:2}</span>",
-        "format-bluetooth": "<span font='Font Awesome 6 Free 11'> {icon:2}</span> {volume:4}% - {desc}",
+        "format": "<span font='Font Awesome 6 Free 11'>{icon:2}</span>{volume:4}%",
+        "format-bluetooth": "<span font='Font Awesome 6 Free 11'> {icon:2}</span> {volume:4}% @ {desc}",
         "format-alt": "<span font='Font Awesome 6 Free 11'>{icon:2}</span> {volume:4}%",
         "format-alt-click": "click-right",
         "format-muted": "<span font='Font Awesome 6 Free 11'></span>",
@@ -88,7 +96,7 @@
         "format": "{icon}",
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
-        "format-wifi": "    {essid} ({signalStrength}%)",
+        "format-wifi": "   {essid} ({signalStrength}%)",
         "format-ethernet": "<span font='Font Awesome 5 Free 10'></span>",
         "format-disconnected": "⚠ Disconnected",
         "on-click": "gnome-control-center wifi",

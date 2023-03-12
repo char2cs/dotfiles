@@ -7,14 +7,14 @@
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, .20);
+    background-color: rgba(0, 0, 0, .001);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+    opacity: 0;
 }
 
 #mode {
@@ -27,6 +27,7 @@ window#waybar.hidden {
 	font-size: 16px;
 }
 
+#custom-weather,
 #backlight,
 #battery,
 #custom-search,
@@ -55,29 +56,20 @@ window#waybar.hidden {
     color: white;
 
 	font-weight: 500;
-    font-size: 18px;
+    font-size: 17px;
 	text-shadow: 1px 1px 4px rgba(0, 0, 0, .65);
 }
 
 #clock {
+	font-size: 18px;
     padding-top: 4px;
 	padding-right: 25px;
-}
-
-#network {
-	font-weight: bold;
-	font-size: 16px;
 }
 
 #network.disconnected {
     background-color: red;
     color: white;
     border-radius: 10px;
-}
-
-#pulseaudio {   
-	font-weight: bold;
-	font-size: 16px;
 }
 
 #pulseaudio.muted {
