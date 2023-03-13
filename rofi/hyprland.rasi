@@ -1,0 +1,103 @@
+* {
+  font: "Montserrat 14";
+
+  bg0    : #b5b5b500;
+  bg1    : #26262670;
+  bg2    : #0e0704;
+  bg3    : #fefefebf;
+  fg0    : #E7E7E7;
+  fg1    : #5f5f5f;
+  
+  accent : #ff8243;
+  urgent : #0e0704;
+
+  background-color : transparent;
+  text-color       : @fg0;
+
+  margin  : 0;
+  padding : 0;
+  spacing : 0;
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+window {
+  location : center;
+  width    : 600px;
+  height   : 250px;
+  y-offset : -4px;
+
+  background-color : @bg1;
+  border-radius    : 8px;
+}
+
+mainbox {
+  padding : 8px;
+  spacing : 24px;
+}
+
+inputbar {
+  font:       "Montserrat 12";
+  padding:    12px;
+  spacing:    12px;
+  children:   [ entry ];
+}
+
+icon-search, entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+icon-search {
+  expand   : false;
+  filename : "search";
+  size     : 25px;
+}
+
+entry {
+  font              : "Montserrat 20";
+  placeholder       : "Search";
+  placeholder-color : @fg1;
+}
+
+textbox {
+  padding          : 8px;
+  background-color : @bg1;
+}
+
+listview {
+  columns       : 1;
+  fixed-height  : true;
+  fixed-columns : true;
+}
+
+element {
+  spacing       : 1em;
+  padding       : 8px;
+  border-radius : 2px;
+}
+
+element normal urgent {
+  text-color: @urgent;
+}
+
+element normal active {
+  text-color: @accent;
+}
+
+element selected {
+  background-color: @accent;
+}
+
+element selected urgent {
+  background-color: @urgent;
+}
+
+element-icon {
+  size: 1.5em;
+}
+
+element-text {
+  text-color: inherit;
+}

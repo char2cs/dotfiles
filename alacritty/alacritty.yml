@@ -4,4 +4,4 @@ shell:
  - --login
 
 window:
- opacity: .50
+ opacity: .3
